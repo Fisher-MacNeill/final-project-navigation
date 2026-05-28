@@ -10,7 +10,7 @@ async function startMedia() {
   // Define what media types you want to request
   const constraints = {
     video: true,
-    audio: true,
+    audio: false,
   };
 
   try {
@@ -28,3 +28,5 @@ async function startMedia() {
 
 // Call the function (usually triggered by a button click event)
 startMedia();
+
+// WE NEED TO GET THIS TO WORK TOMORROW OR SCRAP THE IDEA COMPLETELY AND MOVE TO NUMBAS
