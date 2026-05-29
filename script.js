@@ -28,4 +28,29 @@ async function setupCamera() {
   });
 }
 
-// WE NEED TO GET THIS TO WORK TOMORROW OR SCRAP THE IDEA COMPLETELY AND MOVE TO NUMBAS
+function drawWebcamContinuous() {
+  ctx.drawImage(video, 0, 0);
+  requestAnimationFrame(drawWebcamContinuous);
+}
+var canvas;
+var ctx;
+
+async function main() {
+  // Set up front-facing camera
+  await setupCamera();
+  video.play();
+
+  // Set up canvas for livestreaming
+  canvas = document.getElementById("facecanvas");
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  ctx = canvas.getContext("2d");
+
+  // Start continuous drawing function
+  drawWebcamContinuous();
+
+  console.log("Camera setup done");
+}
+
+// Delay the camera request by a bit, until the main body has loaded
+document.querySelector(".scan").addEventListener("DOMContentLoaded", main);
