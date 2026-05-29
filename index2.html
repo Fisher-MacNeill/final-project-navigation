@@ -61,7 +61,7 @@
             html5QrCode = new Html5Qrcode("reader");
 
             await html5QrCode.start(
-              cameraId,
+              { facingMode: "environment" }, // back camera
               {
                 fps: 10,
                 qrbox: 250,
