@@ -7,24 +7,47 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Import latest version of TF.js-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+
+    <!-- Facemesh model import -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh"></script>
   </head>
   <body>
     <h1 class="title">Rural Navigation</h1>
     <button type="button" class="scan">Scan QR Code</button>
-    <p>QR Code</p>
+    <hr />
+
     <div class="images">
       <img
         src="img/TopFloor.PNG"
         alt="topfloor superiest thing"
         class="topfloor"
+        style="display: none"
       />
       <img
         src="img/BottomFloor.PNG"
         alt="buttomfloor thing"
         class="bottomfloor"
+        style="display: none"
       />
     </div>
+    <canvas id="facecanvas"></canvas>
 
+    <!-- Video that handles the browser access to the camera. The transforms mirror the feed -->
+    <video
+      autoplay
+      muted
+      hidden
+      playsinline
+      id="video"
+      style="
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        width: auto;
+        height: auto;
+      "
+    ></video>
     <script src="script.js" async defer></script>
   </body>
 </html>
