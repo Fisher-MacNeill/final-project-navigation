@@ -1,55 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Rural Navigation</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-    <!-- Import latest version of TF.js-->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <meta charset="UTF-8" />
+    <title>QR Scanner</title>
 
-    <!-- Facemesh model import -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <style href="style.css"></style>
   </head>
   <body>
-    <h1 class="title">Rural Navigation</h1>
-    <button type="button" class="scan">Scan QR Code</button>
-    <hr />
-
-    <div class="images">
-      <img
-        src="img/TopFloor.PNG"
-        alt="topfloor superiest thing"
-        class="topfloor"
-        style="display: none"
-      />
-      <img
-        src="img/BottomFloor.PNG"
-        alt="buttomfloor thing"
-        class="bottomfloor"
-        style="display: none"
-      />
+    <div class="main-header">
+      <img src="CRHS logo.png" alt="CRHS LOGO" class="logo" />
+      <h1>Charlottetown Rural High School - Navigation</h1>
     </div>
-    <canvas id="facecanvas"></canvas>
+    <button id="scanBtn">Scan QR Code</button>
 
-    <!-- Video that handles the browser access to the camera. The transforms mirror the feed -->
-    <video
-      autoplay
-      muted
-      hidden
-      playsinline
-      id="video"
-      style="
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
-        width: auto;
-        height: auto;
-      "
-    ></video>
+    <div id="reader"></div>
+
+    <div id="result"></div>
+    <div id="error"></div>
     <script src="script.js" async defer></script>
-
-    <p>Test 2</p>
   </body>
 </html>

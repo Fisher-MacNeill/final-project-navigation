@@ -1,0 +1,45 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  padding-top: 30px;
+  background-color: white;
+}
+
+#reader {
+  width: 900px;
+  margin: auto;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+#result {
+  margin-top: 20px;
+  color: green;
+}
+
+#error {
+  margin-top: 20px;
+  color: red;
+  white-space: pre-wrap;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 600px;
+  height: 175px;
+}
+
+.main-header {
+  display: flex;
+  border: solid 5px red;
+  padding: 10px;
+}

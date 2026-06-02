@@ -1,56 +1,39 @@
-document.querySelector(".scan");
+let html5QrCode;
 
-document.querySelector(".scan").addEventListener("click", setupCamera);
+document.getElementById("scanBtn").addEventListener("click", async () => {
+  document.getElementById("error").innerText = "";
 
-const constraints = { video: true, audio: true };
+  try {
+    // Check camera permissions
+    const devices = await Html5Qrcode.getCameras();
 
-// Camera setup function - returns a Promise so we have to call it in an async function
-async function setupCamera() {
-  // Find the video element on our HTML page
-  video = document.getElementById("video");
+    if (devices && devices.length) {
+      const cameraId = devices[0].id;
 
-  // Request the front-facing camera of the device
-  const stream = await navigator.mediaDevices.getUserMedia({
-    audio: false,
-    video: {
-      facingMode: "user",
-      height: { ideal: 1920 },
-      width: { ideal: 1920 },
-    },
-  });
-  video.srcObject = stream;
+      html5QrCode = new Html5Qrcode("reader");
 
-  // Handle the video stream once it loads.
-  return new Promise((resolve) => {
-    video.onloadedmetadata = () => {
-      resolve(video);
-    };
-  });
-}
+      await html5QrCode.start(
+        { facingMode: "environment" }, // back camera
+        {
+          fps: 10,
+          qrbox: 750,
+        },
+        (decodedText) => {
+          document.getElementById("result").innerText =
+            "QR Code: " + decodedText;
 
-function drawWebcamContinuous() {
-  ctx.drawImage(video, 0, 0);
-  requestAnimationFrame(drawWebcamContinuous);
-}
-var canvas;
-var ctx;
+          // html5QrCode.stop();
+        },
+        (errorMessage) => {
+          // Ignore scan errors
+        }
+      );
+    } else {
+      document.getElementById("error").innerText = "No cameras found.";
+    }
+  } catch (err) {
+    console.error(err);
 
-async function main() {
-  // Set up front-facing camera
-  await setupCamera();
-  video.play();
-
-  // Set up canvas for livestreaming
-  canvas = document.getElementById("facecanvas");
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  ctx = canvas.getContext("2d");
-
-  // Start continuous drawing function
-  drawWebcamContinuous();
-
-  console.log("Camera setup done");
-}
-
-// Delay the camera request by a bit, until the main body has loaded
-document.querySelector(".scan").addEventListener("DOMContentLoaded", main);
+    document.getElementById("error").innerText = "Scanner failed:\n\n" + err;
+  }
+});
