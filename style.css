@@ -43,3 +43,7 @@ h1 {
   border: solid 5px red;
   padding: 10px;
 }
+
+#scanBtn {
+  margin-top: 15px;
+}
