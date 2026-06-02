@@ -4,7 +4,6 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
   document.getElementById("error").innerText = "";
 
   try {
-    // Check camera permissions
     const devices = await Html5Qrcode.getCameras();
 
     if (devices && devices.length) {
@@ -13,7 +12,7 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
       html5QrCode = new Html5Qrcode("reader");
 
       await html5QrCode.start(
-        { facingMode: "environment" }, // back camera
+        { facingMode: "environment" },
         {
           fps: 10,
           qrbox: 750,
@@ -21,12 +20,11 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
         (decodedText) => {
           document.getElementById("result").innerText =
             "QR Code: " + decodedText;
+          window.location.href = "map1.html";
 
           // html5QrCode.stop();
         },
-        (errorMessage) => {
-          // Ignore scan errors
-        }
+        (errorMessage) => {}
       );
     } else {
       document.getElementById("error").innerText = "No cameras found.";
