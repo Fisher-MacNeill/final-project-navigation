@@ -20,7 +20,10 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
         (decodedText) => {
           document.getElementById("result").innerText =
             "QR Code: " + decodedText;
-          window.location.href = "map1.html";
+          // window.location.href = "map1.html";
+          window.location.replace(
+            "https://fisher-macneill.github.io/final-project-navigation/map1.html"
+          );
 
           // html5QrCode.stop();
         },
