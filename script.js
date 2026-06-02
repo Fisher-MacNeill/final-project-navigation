@@ -25,7 +25,7 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
             "https://fisher-macneill.github.io/final-project-navigation/map1.html"
           );
 
-          // html5QrCode.stop();
+          html5QrCode.stop();
         },
         (errorMessage) => {}
       );
