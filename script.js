@@ -2,9 +2,6 @@ let html5QrCode;
 let roomNumbers;
 let html;
 
-const dropdown = document.querySelector("dropdownbox");
-const selectedHallway = dropdown.value;
-
 document.getElementById("scanBtn").addEventListener("click", async () => {
   document.getElementById("error").innerText = "";
 
@@ -25,7 +22,7 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
         (decodedText) => {
           document.getElementById("result").innerText =
             "QR Code: " + decodedText;
-          decodedText = roomNumbers;
+          roomNumbers = decodedText;
           window.location.href = "map1.html";
           // window.location.replace(
           //   "https://fisher-macneill.github.io/final-project-navigation/map1.html"
@@ -60,9 +57,13 @@ function insertHTML() {
 </select>
 </div>`;
 
-  insertNewHTML.insertAdjacentHTML("afterend", html);
+  if (roomNumbers == "300-308") {
+    insertNewHTML.insertAdjacentHTML("afterend", html);
+  }
 }
 function directions() {
+  const dropdown = document.querySelector("dropdownbox");
+  const selectedHallway = dropdown.value;
   console.log(selectedHallway);
   if (selectedHallway == "300-308") {
   }
