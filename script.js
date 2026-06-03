@@ -61,7 +61,9 @@ function insertHTML() {
   <option value="339-343">339-343</option>
 </select>
 </div>`;
+
   let roomNmbrs = String(roomNumbers);
+
   if (roomNmbrs == "300-308") {
     insertNewHTML.insertAdjacentHTML("afterend", html);
   }
