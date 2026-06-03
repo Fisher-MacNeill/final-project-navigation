@@ -2,7 +2,9 @@ let html5QrCode;
 let roomNumbers;
 let html;
 
-document.getElementById("scanBtn").addEventListener("click", async () => {
+const dropdown = document.querySelector("dropdownbox");
+
+document.getElementById("scanBtn")?.addEventListener("click", async () => {
   document.getElementById("error").innerText = "";
 
   try {
@@ -10,6 +12,7 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
 
     if (devices && devices.length) {
       const cameraId = devices[0].id;
+      console.log(cameraId);
 
       html5QrCode = new Html5Qrcode("reader");
 
@@ -64,10 +67,10 @@ function insertHTML() {
   }
 }
 function directions() {
-  const dropdown = document.querySelector("dropdownbox");
-  const selectedHallway = dropdown.value;
+  let document = dropdown.value;
   console.log(selectedHallway);
   if (selectedHallway == "300-308") {
   }
 }
+
 // document.querySelector(".dropdownbox").addEventListener("change",directions);
