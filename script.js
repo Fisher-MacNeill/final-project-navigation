@@ -26,7 +26,9 @@ document.getElementById("scanBtn")?.addEventListener("click", async () => {
           // document.getElementById("result").innerText =
           //   "QR Code: " + decodedText;
           roomNumbers = decodedText;
-          window.location.href = "map1.html";
+          window.location.href = `map1.html?room=${encodeURIComponent(
+            decodedText
+          )}`;
           // window.location.replace(
           //   "https://fisher-macneill.github.io/final-project-navigation/map1.html"
           // );
@@ -48,6 +50,9 @@ document.getElementById("scanBtn")?.addEventListener("click", async () => {
   }
 });
 
+const urlParams = new URLSearchParams(window.location.search);
+const roomNmbrs = urlParams.get("room");
+
 function insertHTML() {
   let insertNewHTML = document.querySelector(".mapflex");
   console.log(roomNumbers);
@@ -62,17 +67,17 @@ function insertHTML() {
 </select>
 </div>`;
 
-  let roomNmbrs = String(roomNumbers);
-
   if (roomNmbrs == "300-308") {
     insertNewHTML.insertAdjacentHTML("afterend", html);
+    document
+      .querySelector(".dropdownbox")
+      .addEventListener("change", directions);
   }
 }
+
 function directions() {
   let selectedHallway = document.querySelector(".dropdownbox").value;
   console.log(selectedHallway);
   if (selectedHallway == "300-308") {
   }
 }
-
-document.querySelector(".dropdownbox").addEventListener("change", directions);
