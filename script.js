@@ -20,8 +20,8 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
           qrbox: 750,
         },
         (decodedText) => {
-          document.getElementById("result").innerText =
-            "QR Code: " + decodedText;
+          // document.getElementById("result").innerText =
+          //   "QR Code: " + decodedText;
           roomNumbers = decodedText;
           window.location.href = "map1.html";
           // window.location.replace(
@@ -31,7 +31,9 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
           html5QrCode.stop();
           return roomNumbers;
         },
-        (errorMessage) => {}
+        (errorMessage) => {
+          console.log(errorMessage);
+        }
       );
     } else {
       document.getElementById("error").innerText = "No cameras found.";
