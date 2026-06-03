@@ -62,5 +62,9 @@ function insertHTML() {
 
   insertNewHTML.insertAdjacentHTML("afterend", html);
 }
-function directions() {}
+function directions() {
+  console.log(selectedHallway);
+  if (selectedHallway == "300-308") {
+  }
+}
 // document.querySelector(".dropdownbox").addEventListener("change",directions);
