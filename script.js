@@ -61,16 +61,16 @@ function insertHTML() {
   <option value="339-343">339-343</option>
 </select>
 </div>`;
-
-  if (roomNumbers == "300-308") {
+  let roomNmbrs = String(roomNumbers);
+  if (roomNmbrs == "300-308") {
     insertNewHTML.insertAdjacentHTML("afterend", html);
   }
 }
 function directions() {
-  let document = dropdown.value;
+  let selectedHallway = document.querySelector(".dropdownbox").value;
   console.log(selectedHallway);
   if (selectedHallway == "300-308") {
   }
 }
 
-// document.querySelector(".dropdownbox").addEventListener("change",directions);
+document.querySelector(".dropdownbox").addEventListener("change", directions);
