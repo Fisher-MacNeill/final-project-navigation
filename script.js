@@ -1,4 +1,9 @@
 let html5QrCode;
+let roomNumbers;
+let html;
+
+const dropdown = document.querySelector("dropdownbox");
+const selectedHallway = dropdown.value;
 
 document.getElementById("scanBtn").addEventListener("click", async () => {
   document.getElementById("error").innerText = "";
@@ -20,12 +25,14 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
         (decodedText) => {
           document.getElementById("result").innerText =
             "QR Code: " + decodedText;
+          decodedText = roomNumbers;
           window.location.href = "map1.html";
           // window.location.replace(
           //   "https://fisher-macneill.github.io/final-project-navigation/map1.html"
           // );
 
           html5QrCode.stop();
+          return roomNumbers;
         },
         (errorMessage) => {}
       );
@@ -38,3 +45,24 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
     document.getElementById("error").innerText = "Scanner failed:\n\n" + err;
   }
 });
+
+function insertHTML() {
+  let insertNewHTML = document.querySelector(".mapflex");
+  console.log(roomNumbers);
+
+  html = `    <div class="mapflex">
+<img src="img/TopFloor.PNG" />
+<select name="dropdown" id="maps" class="dropdownbox">
+  <option value="300-308">300-308</option>
+  <option value="324-329">324-329</option>
+  <option value="330-338">330-338</option>
+  <option value="339-343">339-343</option>
+</select>
+</div>`;
+
+  insertNewHTML.insertAdjacentHTML("afterend", html);
+}
+function directions() {}
+// document.querySelector(".dropdownbox").addEventListener("change",directions);
+
+function changeMap() {}
