@@ -64,5 +64,3 @@ function insertHTML() {
 }
 function directions() {}
 // document.querySelector(".dropdownbox").addEventListener("change",directions);
-
-function changeMap() {}
