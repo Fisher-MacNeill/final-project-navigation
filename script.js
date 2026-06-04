@@ -29,7 +29,7 @@ document.getElementById("scanBtn")?.addEventListener("click", async () => {
           window.location.href = `map1.html?room=${encodeURIComponent(
             decodedText
           )}`;
-          // window.location.replace(
+          // window.location.replace(>?>
           //   "https://fisher-macneill.github.io/final-project-navigation/map1.html"
           // );
 
@@ -57,27 +57,72 @@ function insertHTML() {
   let insertNewHTML = document.querySelector(".mapflex");
   console.log(roomNumbers);
 
-  html = `    <div class="mapflex">
-<img src="img/TopFloor.PNG" />
-<select name="dropdown" id="maps" class="dropdownbox">
-  <option value="300-308">300-308</option>
-  <option value="324-329">324-329</option>
-  <option value="330-338">330-338</option>
-  <option value="339-343">339-343</option>
-</select>
-</div>`;
-
   if (roomNmbrs == "300-308") {
-    insertNewHTML.insertAdjacentHTML("afterend", html);
-    document
-      .querySelector(".dropdownbox")
-      .addEventListener("change", directions);
+    html = `    <div class="mapflex">
+    <img src="img/TopFloor.PNG" class="floorplan"/>
+    <select name="dropdown" id="maps" class="dropdownbox">
+    <option disabled selected>Chose a hallway</option>
+      <option value="324-329">324-329</option>
+      <option value="330-338">330-338</option>
+      <option value="339-343">339-343</option>
+    </select>
+    </div>`;
+  } else if (roomNmbrs == "324-329") {
+    html = `    <div class="mapflex">
+    <img src="img/TopFloor.PNG" class="floorplan"/>
+    <select name="dropdown" id="maps" class="dropdownbox">
+    <option disabled selected>Chose a hallway</option>
+    <option value="300-308">300-308</option>
+      <option value="330-338">330-338</option>
+      <option value="339-343">339-343</option>
+    </select>
+    </div>`;
+  } else if (roomNmbrs == "330-338") {
+    html = `    <div class="mapflex">
+    <img src="img/TopFloor.PNG" class="floorplan"/>
+    <select name="dropdown" id="maps" class="dropdownbox">
+    <option disabled selected>Chose a hallway</option>
+    <option value="300-308">300-308</option>
+    <option value="324-329">324-329</option>
+      <option value="339-343">339-343</option>
+    </select>
+    </div>`;
+  } else if (roomNmbrs == "339-343") {
+    html = `    <div class="mapflex">
+    <img src="img/TopFloor.PNG" class="floorplan"/>
+    <select name="dropdown" id="maps" class="dropdownbox">
+    <option disabled selected>Chose a hallway</option>
+    <option value="300-308">300-308</option>
+    <option value="324-329">324-329</option>
+    <option value="330-338">330-338</option>
+    </select>
+    </div>`;
   }
+
+  insertNewHTML.insertAdjacentHTML("afterend", html);
+  document.querySelector(".dropdownbox").addEventListener("change", directions);
 }
 
 function directions() {
+  let floorplan = document.querySelector(".floorplan");
   let selectedHallway = document.querySelector(".dropdownbox").value;
   console.log(selectedHallway);
-  if (selectedHallway == "300-308") {
+  if (roomNmbrs == "300-308") {
+    if (selectedHallway == "324-329") {
+      floorplan.src = "floorplans/300-324.png";
+    } else if (selectedHallway == "339-343") {
+      floorplan.src = "floorplans/300-339.png";
+    } else if (selectedHallway == "330-338") {
+      floorplan.src = "floorplans/300-330.png";
+    } else if (selectedHallway == "324-329") {
+      floorplan.src = "floorplans/300-324.png";
+    }
+  }
+  else if (roomNmbrs == "324-329"){
+    if (selectedHallway == "300-308"){
+      floorplan.src = "floorplans/324-300.png"
+    } else if (selectedHallway == "330-339") {
+      floorplan.src = "floorplans/324-339.png"
+    } else if (selectedHallway == "")
   }
 }
