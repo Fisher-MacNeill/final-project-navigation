@@ -117,12 +117,12 @@ function directions() {
     } else if (selectedHallway == "324-329") {
       floorplan.src = "floorplans/300-324.png";
     }
-  }
-  else if (roomNmbrs == "324-329"){
-    if (selectedHallway == "300-308"){
-      floorplan.src = "floorplans/324-300.png"
+  } else if (roomNmbrs == "324-329") {
+    if (selectedHallway == "300-308") {
+      floorplan.src = "floorplans/324-300.png";
     } else if (selectedHallway == "330-339") {
-      floorplan.src = "floorplans/324-339.png"
-    } else if (selectedHallway == "")
+      floorplan.src = "floorplans/324-339.png";
+      // } else if (selectedHallway == "")
+    }
   }
 }
