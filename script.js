@@ -107,22 +107,38 @@ function directions() {
   let floorplan = document.querySelector(".floorplan");
   let selectedHallway = document.querySelector(".dropdownbox").value;
   console.log(selectedHallway);
+
   if (roomNmbrs == "300-308") {
     if (selectedHallway == "324-329") {
       floorplan.src = "floorplans/300-324.png";
-    } else if (selectedHallway == "339-343") {
-      floorplan.src = "floorplans/300-339.png";
     } else if (selectedHallway == "330-338") {
       floorplan.src = "floorplans/300-330.png";
-    } else if (selectedHallway == "324-329") {
-      floorplan.src = "floorplans/300-324.png";
+    } else if (selectedHallway == "339-343") {
+      floorplan.src = "floorplans/300-339.png";
     }
   } else if (roomNmbrs == "324-329") {
     if (selectedHallway == "300-308") {
       floorplan.src = "floorplans/324-300.png";
-    } else if (selectedHallway == "330-339") {
+    } else if (selectedHallway == "330-338") {
+      floorplan.src = "floorplans/324-330.png";
+    } else if (selectedHallway == "339-343") {
       floorplan.src = "floorplans/324-339.png";
-      // } else if (selectedHallway == "")
+    }
+  } else if (roomNmbrs == "330-338") {
+    if (selectedHallway == "300-308") {
+      floorplan.src = "floorplans/300-330.png";
+    } else if (selectedHallway == "324-329") {
+      floorplan.src = "floorplans/324-330.png";
+    } else if (selectedHallway == "339-343") {
+      floorplan.src = "floorplans/339_to_330.png";
+    }
+  } else if (roomNmbrs == "339-343") {
+    if (selectedHallway == "300-308") {
+      floorplan.src = "floorplans/339_to_300.png";
+    } else if (selectedHallway == "324-329") {
+      floorplan.src = "floorplans/339_to_324.png";
+    } else if (selectedHallway == "330-338") {
+      floorplan.src = "floorplans/339_to_330.png";
     }
   }
 }
