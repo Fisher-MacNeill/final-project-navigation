@@ -26,12 +26,12 @@ a {
   text-decoration: none;
 }
 
-.site-header {
+.top-bar {
   background: #fff;
   border-bottom: 4px solid #c4111d;
 }
 
-.header-inner {
+.top-bar-inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 1rem 1rem;
@@ -46,29 +46,29 @@ a {
   object-fit: contain;
 }
 
-.brand-text {
+.title-box {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.brand-title {
+.main-title {
   font-size: 1.35rem;
   font-weight: 700;
 }
 
-.brand-subtitle {
+.sub-title {
   color: #5a5a5a;
   font-size: 0.95rem;
 }
 
-.page-content {
+.main-area {
   max-width: 1100px;
   margin: 2rem auto 3rem;
   padding: 0 1rem;
 }
 
-.hero-panel {
+.big-banner {
   border-radius: 18px;
   padding: 2rem;
   background: linear-gradient(180deg, rgba(196, 17, 29, 0.95), rgba(196, 17, 29, 0.8));
@@ -76,11 +76,11 @@ a {
   margin-bottom: 1.75rem;
 }
 
-.hero-small {
+.smaller-banner {
   padding: 1.75rem;
 }
 
-.hero-label {
+.small-label {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.8rem;
@@ -88,19 +88,19 @@ a {
   margin-bottom: 0.75rem;
 }
 
-.hero-copy h1 {
+.banner-copy h1 {
   margin: 0;
   font-size: clamp(2rem, 2.5vw, 3rem);
   line-height: 1.05;
 }
 
-.hero-copy p {
+.banner-copy p {
   max-width: 720px;
   margin: 1rem 0 0;
   color: rgba(255, 255, 255, 0.9);
 }
 
-.hero-actions {
+.banner-actions {
   margin-top: 1.75rem;
   display: flex;
   flex-wrap: wrap;
@@ -133,26 +133,26 @@ button:hover,
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.scanner-panel,
-.map-section {
+.scanner-area,
+.map-area {
   display: grid;
   gap: 1.5rem;
 }
 
-.scanner-card,
-.mapcard {
+.scanner-box,
+.map-box {
   background: #fff;
   border-radius: 18px;
   padding: 1.75rem;
   box-shadow: 0 16px 40px rgba(15, 15, 15, 0.06);
 }
 
-.scanner-card h2 {
+.scanner-box h2 {
   margin-top: 0;
   font-size: 1.4rem;
 }
 
-.reader {
+.scanner-view {
   width: 100%;
   min-height: 420px;
   background: #f5f5f5;
@@ -161,17 +161,17 @@ button:hover,
   margin: 1.5rem 0;
 }
 
-.scanner-feedback,
-.scanner-error {
+.feedback-text,
+.error-text {
   min-height: 1.4rem;
   font-size: 0.98rem;
 }
 
-.scanner-feedback {
+.feedback-text {
   color: #0b7a11;
 }
 
-.scanner-error {
+.error-text {
   color: #c4111d;
   white-space: pre-wrap;
 }
@@ -208,7 +208,7 @@ button:hover,
   width: auto;
 }
 
-.site-footer {
+.page-footer {
   text-align: center;
   padding: 1.5rem 0;
   color: #666;
@@ -216,17 +216,17 @@ button:hover,
 }
 
 @media (max-width: 800px) {
-  .header-inner {
+  .top-bar-inner {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .hero-actions {
+  .banner-actions {
     flex-direction: column;
   }
 
-  .hero-copy p {
+  .banner-copy p {
     max-width: 100%;
   }
 }
