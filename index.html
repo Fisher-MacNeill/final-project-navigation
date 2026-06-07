@@ -1,27 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>QR Scanner</title>
-
-    <script src="https://unpkg.com/html5-qrcode"></script>
-
+    <title>Charlottetown Rural High School Navigation</title>
     <link rel="stylesheet" href="style.css" />
-    <style href="style.css"></style>
   </head>
   <body>
-    <div class="main-header">
-      <img src="img/CRHS logo.png" alt="CRHS LOGO" class="logo" />
-      <h1>Charlottetown Rural High School - Navigation</h1>
-    </div>
-    <button id="scanBtn">Start QR Scanner</button>
+    <header class="site-header">
+      <div class="header-inner">
+        <img src="img/CRHS logo.png" alt="CRHS logo" class="logo" />
+        <div class="brand-text">
+          <span class="brand-title">Charlottetown Rural High School</span>
+          <span class="brand-subtitle">Hallway Navigation</span>
+        </div>
+      </div>
+    </header>
 
-    <div id="reader"></div>
+    <main class="page-content">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p class="hero-label">School Navigation</p>
+          <h1>Find your way around CRHS</h1>
+          <p>Scan a hallway QR code to quickly find the best path to your desired location!</p>
+          <div class="hero-actions">
+            <button id="scanBtn">Start QR Scanner</button>
+            <!-- <a class="button secondary" href="map1.html">View Top Floor Map</a> -->
+          </div>
+        </div>
+      </section>
 
-    <div id="result"></div>
-    <div id="error"></div>
+      <section class="scanner-panel">
+        <div class="scanner-card">
+          <h2>QR Scanner</h2>
+          <div id="reader" class="reader"></div>
+          <div id="result" class="scanner-feedback"></div>
+          <div id="error" class="scanner-error"></div>
+        </div>
+      </section>
+    </main>
 
-    <!-- <a href="map1.html"><button>Go to TopFloor</button></a> -->
-    <script src="script.js" async defer></script>
+    <footer class="site-footer">
+      <p>Charlottetown Rural High School</p>
+    </footer>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
