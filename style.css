@@ -9,7 +9,7 @@ body {
   min-height: 100%;
   background: #f4f4f4;
   color: #202020;
-  font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
 }
 
 body {
@@ -71,7 +71,11 @@ a {
 .big-banner {
   border-radius: 18px;
   padding: 2rem;
-  background: linear-gradient(180deg, rgba(196, 17, 29, 0.95), rgba(196, 17, 29, 0.8));
+  background: linear-gradient(
+    180deg,
+    rgba(196, 17, 29, 0.95),
+    rgba(196, 17, 29, 0.8)
+  );
   color: #fff;
   margin-bottom: 1.75rem;
 }
@@ -178,7 +182,8 @@ button:hover,
 
 .mapflex {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  max-width: 800px;
   align-items: flex-start;
   padding: 15px;
 }
@@ -230,4 +235,3 @@ button:hover,
     max-width: 100%;
   }
 }
- 
